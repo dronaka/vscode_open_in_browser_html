@@ -9,7 +9,6 @@
     "categories": [
         "Other"
     ],
-    
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
@@ -24,6 +23,5 @@
     "dependencies": {
         "opn": "^5.0.0",
         "x-default-browser": "^0.4.0"
-    },
-
+    }
 }
