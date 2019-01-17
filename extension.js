@@ -70,7 +70,7 @@ function activate(context) {
         ];
     }
     quickPick.push('firefox');
-    quickPick.push('yandex');
+    quickPick.push('chrome with devtools');
     return quickPick;
 };
 

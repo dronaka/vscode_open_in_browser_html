@@ -26,6 +26,28 @@
             }
         ]
     },
+    "keybindings": [
+        {
+            "command": "extension.openWith",
+            "key": "ctrl+alt+o",
+            "win": "ctrl+alt+o",
+            "linux": "ctrl+alt+o"
+        },
+        {
+            "command": "extension.openWithDefault",
+            "key": "ctrl+alt+p",
+            "win": "ctrl+alt+p",
+            "linux": "ctrl+alt+p"
+        }
+    ],
+    "menus": {
+        "explorer/context": [
+            {
+                "command": "extension.openWithDefault",
+                "group": "navigation@1"
+            }
+        ]
+    },
 
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
