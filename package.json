@@ -9,6 +9,24 @@
     "categories": [
         "Other"
     ],
+    "activationEvents": [
+        "onCommand:extension.openWith",
+        "onCommand:extension.openWithDefault"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.openWith",
+                "title": "Open With"
+            },
+            {
+                "command": "extension.openWithDefault",
+                "title": "Open With Default Browser"
+            }
+        ]
+    },
+
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
@@ -24,4 +42,5 @@
         "opn": "^5.0.0",
         "x-default-browser": "^0.4.0"
     }
+
 }
