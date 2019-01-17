@@ -18,7 +18,9 @@ function activate(context) {
             placeHolder: 'Which browser you want to use?'
         }).then((val) => {
           if (val) {
-            opn(doc.fileName, { app: val })
+              doc.save();
+            let appArgs = getChromeArgs(val);
+            opn(doc.fileName, { app: appArgs });
           } else {
             return
           }
@@ -26,7 +28,7 @@ function activate(context) {
       })
       context.subscriptions.push(disposable)
 
-      // use default browser
+      //  default browser
     const disposableDefault = vscode.commands.registerCommand('extension.openWithDefault', () => {
         let editor = vscode.window.activeTextEditor;
         let doc = editor.document;
@@ -72,6 +74,26 @@ function activate(context) {
     return quickPick;
 };
 
+function getChromeArgs(val) {
+    let args = [];
+    if (val === 'chrome with devtools') {
+        switch (platform) {
+            case 'win32':
+                args = [WIN_CHROME];
+                break;
+            case 'linux':
+                args = [LINUX_CHROME];
+                break;
+            default:
+                console.log(platform);
+                break;
+        }
+        args.push('--auto-open-devtools-for-tabs');
+        return args;
+    } else {
+        return val;
+    }
+}
 
 exports.activate = activate;
 
